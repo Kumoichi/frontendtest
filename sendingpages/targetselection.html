@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/targetselection.css"> 
+    <link rel="stylesheet" href="../css/title.css">
+    <link rel="stylesheet" href="../css/bottomButton.css"> 
+ 
+
+    <title>Document</title>
+ 
+</head>
+<body class="selectionphase">
+    <div>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/selection.css"> 
+    <title>Sideways Triangle with Square</title>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Bar</title>
+    <link rel="stylesheet" href="../css/topbar.css"> 
+    </head>
+    <body>
+    
+    <div class="top-bar">
+      <div class="logo">
+        <img src="../images/saleslab.png" alt="Logo" style="height:80px; width:220px;">
+      </div>
+      <div class="title">
+        <h1>ウェブアプリ名称</h1> 
+      </div>
+      <div></div> 
+    </div>
+    <div class="container">
+      <a href="../auth/login.html" class="logout-button">ログアウト>></a>
+      <a href="../dashboard.html" class="logout-button">メインメニュー</a>
+    </div>
+    </body>
+    </html> 
+    
+</head>
+
+<body>
+
+    <div class="three-container">
+    <h2>メール配信指示設定</h2>
+
+    </div>
+
+        <div class="three-container">
+            <div class="shape-container">
+                <div class="square">
+                    <div class="instruction">配信条件指示</div>
+                    <div class="triangle-hide"></div> 
+                </div>
+                <div class="triangle"></div>
+            </div>
+
+            <div class="shape-container">
+                <div class="square">
+                <div class="instruction">配信内容確認</div>
+                    <div class="triangle-hide"></div> 
+                </div>
+                <div class="triangle"></div>
+            </div>
+
+            <div class="shape-container">
+                <div class="square">
+                <div class="instruction3">配信タイミング指定</div>
+                    <div class="triangle-hide"></div> 
+                </div>
+                <div class="triangle"></div>
+            </div>
+        </div>
+</body>
+</html>
+
+    </div>
+
+    <div class="white-back">
+        <p class="green-underline"><span style="color: red;">＊</span>ターゲットを選択する</p>
+
+        <div class="centered-container">
+           
+        <ul id="targetList">
+            <li><a href="#" class="circle"><span class="inner-circle"></span></a> ターゲットA</li>
+            <li><a href="#" class="circle"><span class="inner-circle"></span></a> ターゲットB</li>
+            <li><a href="#" class="circle"><span class="inner-circle"></span></a> ターゲットC</li>
+            <li><a href="#" class="circle"><span class="inner-circle"></span></a> ターゲットD</li>
+        </ul>
+
+           </div>
+
+        <form id="targetForm" action="{{ route('handle.target.selection') }}" method="post">
+             
+            <input type="hidden" name="targetName" id="targetNameInput">
+        </form>
+    </div>
+
+    <div class="center-bottom-buttons">
+        <div class="button-wrapper">
+            <a href="contentselection.html" class="pagemovement-button left">前へ戻る</a>
+            <a href="templateselection" class="pagemovement-button under">最初から設定</a>
+            <a href="summary-page.html" id="openModal" class="pagemovement-button right">確認画面へ進む</a>
+        </div>
+    </div>
+
+    <script>
+        function submitForm() {
+            var targetName = document.querySelector('.circle.active').nextSibling.textContent.trim();
+            document.getElementById('targetNameInput').value = targetName;
+            document.getElementById('targetForm').submit();
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var circles = document.querySelectorAll('.circle');
+
+            circles.forEach(function (circle) {
+                circle.addEventListener('click', function (event) {
+                    circles.forEach(function (c) {
+                        c.classList.remove('active');
+                    });
+                    event.target.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

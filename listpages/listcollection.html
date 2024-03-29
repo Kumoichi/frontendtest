@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../css/topbar.css"> 
+
+    <style>
+
+        .container{
+            position: absolute;
+        }
+        .scrollable-table {
+            overflow-x: auto;
+            max-width: 900px; 
+            display: block;
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: auto; 
+            white-space: nowrap; 
+        }
+        
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+
+        .bottom-buttons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .bottom-buttons > div {
+            margin: 0 20px; 
+        }
+
+        .pagemovement-button {
+            background-color: #11A7B7;
+            text-decoration: none;
+            color: white;
+            padding: 15px;
+            border-radius: 15px;
+            width: auto; 
+            min-width: 100px;
+            text-align: center;
+            margin-right: 10px; 
+            cursor: pointer;
+        }
+
+        /* Modal Style */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 60%;
+        }
+
+        .back-button
+        {
+            width: 90px;
+            height: 40px;
+            border-radius: 5px;
+            background-color: gray;
+            color: white;
+            text-align: center;
+
+        }
+
+        .make-button
+        {
+            width: 30px;
+        }
+        
+        .wrapping{
+            display: flex;
+            justify-content: center;
+            margin-left: 80px;
+        }
+ 
+        .entire-record {
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+        }
+
+
+        .bottom-buttons{
+            bottom: 30%;
+        }
+
+        .number-record{
+            display: flex;
+        }
+
+        .circlenumber
+        {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid black;
+        }
+ 
+    </style>
+</head>
+<body style="position:relative">
+  <div class="top-bar">
+  <div class="logo">
+    <img src="../images/saleslab.png" alt="Logo" style="height:80px; width:220px;">
+  </div>
+  <div class="title">
+    <h1>ウェブアプリ名称</h1> 
+  </div>
+  <div></div> 
+</div>
+
+ <div class="container"> 
+  <a href="../auth/login.html" class="logout-button">ログアウト>></a>
+  <a href="../dashboard.html" class="logout-button">メインメニュー</a>
+</div>
+
+<div>
+    <h2 style="color:gray; margin-left:18%;">表示：５件</h2>
+</div>
+<!-- @foreach($listinfo as $key => $list) -->
+<div class="wrapping">
+<div class="entire-record"> <!-- Adjust the top position dynamically -->
+    <div class="number-record"><div class="circlenumber"><div style="margin-left: 5px;">1</div></div>案件</div><!-- Increment the key by 1 to start with 1 instead of 0 -->
+    <div class="scrollable-table">
+        <table>
+            <tr>
+                <th>法人番号</th>
+                <th>社名</th>
+                <th>都道府県</th>
+                <th>市区群名</th>
+                <th>郵便番号</th>
+                <th>住所 1</th>
+                <th>TEL</th>
+                <th>FAX</th>
+                <th>従業員数</th>
+                <th>資本金（千円）</th>
+                <th>上場区分</th>
+                <th>売上高（百万円）</th>
+                <th>代表者名</th> 
+                <th>URL</th>
+                <th>日本標準産業分類大分類名称</th>
+                <th>日本標準産業分類中分類名称</th>
+                <th>日本標準産業分類小分類名称</th> 
+                <th>日本標準産業分類細分類名称</th>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>
+</div>
+<!-- @endforeach -->
+
+
+<div class="bottom-buttons">
+        <a href="listselection.html" class="pagemovement-button" style="background-color: #767676;">前へ戻る</a>
+        <div class="pagemovement-button" id="openModalButton">案件コード指定とリスト名作成</div>
+    </div>
+
+
+    <!-- firstModal -->
+    <div id="firstModal" class="modal">
+            <div class="modal-content">
+            <h1 style="color:gray; text-align:center;">案件コード指定とリスト名作成</h1>
+            <form method="POST" id="recordForm" action="{{ route('handle.list.collection') }}">
+                <div style="text-align: center;color:gray;"><span style="color:red;">*</span>案件コード：<input style="width: 250px; height:35px; margin-bottom:20px;" placeholder="入力してください。" name="record"></div>
+                <div style="text-align: center;color:gray"><span style="color:red;">*</span>リスト名前：<input style="width: 250px; height:35px;" placeholder="入力してください。" name="listname"></div>
+                <div class="bottom-buttons">
+                    <div class="pagemovement-button" id="closeFirstModalButton" style="background-color: #767676;">戻る</div>
+                    <div class="pagemovement-button" id="openSecondModalButton">作成する</div> 
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Second Modal -->
+    <div id="secondModal" class="modal">
+            <div class="modal-content">
+            <h2 style="color:gray; text-align:center;">このリストを送信しますか？</h2>
+            <div class="bottom-buttons">
+                    <div class="pagemovement-button" id="closeSecondModalButton" style="background-color: #767676;">戻る</div>
+                    <a href="listsent.html" class="pagemovement-button">送信する</a>
+
+            </div>  
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+    var modal = document.getElementById('firstModal');
+    var secondModal = document.getElementById('secondModal');
+
+    var openModalButton = document.getElementById('openModalButton');
+    openModalButton.addEventListener('click', function() {
+        modal.style.display = 'block';
+    });
+
+    var openSecondModalButton = document.getElementById('openSecondModalButton');
+        openSecondModalButton.addEventListener('click', function() {
+        secondModal.style.display = 'block';
+        modal.style.display = 'none';
+    });
+
+    var closeFirstModalButton = document.getElementById('closeFirstModalButton');
+        closeFirstModalButton.addEventListener('click', function() {
+        modal.style.display = 'none';
+        });
+
+    var closeSecondModalButton = document.getElementById('closeSecondModalButton');
+        closeSecondModalButton.addEventListener('click', function() {
+        secondModal.style.display = 'none';
+        modal.style.display = 'block';
+        });
+
+
+    window.addEventListener('click', function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+
+    document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("submit-btn").addEventListener("click", function() {
+                document.getElementById("recordForm").submit();
+            });
+        });
+</script>
+
+</body>
+</html>

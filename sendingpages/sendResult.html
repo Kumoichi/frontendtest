@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/timeselection.css" rel="stylesheet">
+    <link href="../css/bottomButton.css" rel="stylesheet">
+        
+    <title>Document</title>
+</head>
+<body class="timeselection">
+<div>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/selection.css"> 
+    <title>Sideways Triangle with Square</title>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Bar</title>
+    <link rel="stylesheet" href="../css/topbar.css"> 
+    </head>
+    <body>
+    
+    <div class="top-bar">
+      <div class="logo">
+        <img src="../images/saleslab.png" alt="Logo" style="height:80px; width:220px;">
+      </div>
+      <div class="title">
+        <h1>ウェブアプリ名称</h1> 
+      </div>
+      <div></div> 
+    </div>
+    <div class="container">
+      <a href="../auth/login.html" class="logout-button">ログアウト>></a>
+      <a href="../dashboard.html" class="logout-button">メインメニュー</a>
+    </div>
+    </body>
+    </html> 
+    
+</head>
+
+<body>
+
+    <div class="three-container">
+    <h2>メール配信指示設定</h2>
+
+    </div>
+
+        <div class="three-container">
+            <div class="shape-container">
+                <div class="square">
+                    <div class="instruction">配信条件指示</div>
+                    <div class="triangle-hide"></div> 
+                </div>
+                <div class="triangle"></div>
+            </div>
+
+            <div class="shape-container">
+                <div class="square">
+                <div class="instruction">配信内容確認</div>
+                    <div class="triangle-hide"></div> 
+                </div>
+                <div class="triangle"></div>
+            </div>
+
+            <div class="shape-container">
+                <div class="square">
+                <div class="instruction3">配信タイミング指定</div>
+                    <div class="triangle-hide"></div> 
+                </div>
+                <div class="triangle"></div>
+            </div>
+        </div>
+</body>
+</html>
+
+
+    <p class="green-underline"><span style="color: red;">＊</span>送信オプション</p>
+
+    <div class="button-choice">
+        <ul>
+        <li class="button-group">
+            <button class="circle-btn" id="circleBtn1"></button><span class="text">今すぐ送信</span>
+        </li>
+
+        <li class="button-group">
+            <button class="circle-btn" id="circleBtn2"></button><span class="text">予定としてスケジュール</span>
+        </li>
+    </ul>
+    </div>
+
+    <div id="showMe"> @include('calendar_form')</div>
+
+    <div class="center-bottom-buttons">
+        <div class="button-wrapper">
+            <a href="targetselection.html" class="pagemovement-button left">前のページ</a>
+            <a href="#" id="openModal" class="pagemovement-button right">案件コードの入力</a>
+            <a href="targetselection.html" class="pagemovement-button under">最初から設定</a>
+        </div>
+
+<!-- Modal -->
+<div id="myModal" class="modal" style="display:block;">
+    <div class="modal-content">
+        <p id="selectedDateTime"></p>
+        <p id="selectedFrequency"></p>
+        
+
+        <div style="text-align: center;">
+            <p style="display:inline; color:gray; margin-right:20px;">メールが送信されました</p>
+        </div>
+
+        <div style="margin-top:20px; text-align: center; display: flex; justify-content: space-around;">
+            <a href="../dashboard.html" class="back-button" style="width: 120px; text-decoration: none;">メインメニュー</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<script>
+
+var ankenBox = document.getElementById('anken_box');
+var confirmButton = document.getElementById('confirmButton');
+
+document.getElementById('circleBtn1').addEventListener('click', function() {
+    this.style.backgroundColor = '#11A7B7';
+    document.getElementById('circleBtn2').style.backgroundColor = 'white'; // Revert color of second button
+    document.getElementById('showMe').style.display = 'none'; // Hide the "show me" div
+  });
+
+  document.getElementById('circleBtn2').addEventListener('click', function() {
+    this.style.backgroundColor = '#11A7B7';
+    document.getElementById('circleBtn1').style.backgroundColor = 'white'; // Revert color of first button
+    document.getElementById('showMe').style.display = 'block'; // Show the "show me" div
+  });
+
+  document.getElementById('confirmButton').addEventListener('click', function() {
+    this.style.backgroundColor = '#11A7B7';
+    // document.getElementById('circleBtn2').style.backgroundColor = 'white'; // Revert color of second button
+    // document.getElementById('showMe').style.display = 'none'; // Hide the "show me" div
+    document.getElementById('secondModal').style.display = 'block'; // Show the "show me" div
+  });
+
+  document.getElementById('firstbackButton').addEventListener('click', function() {
+    document.getElementById('myModal').style.display = 'none'; // Show the "show me" div
+  });
+
+  document.getElementById('secondbackButton').addEventListener('click', function() {
+    document.getElementById('secondModal').style.display = 'none'; // Hide the "show me" div
+  });
+
+
+    ankenBox.addEventListener('input', function() {
+
+        if (ankenBox.value.trim() !== '') {
+            confirmButton.style.backgroundColor = '#11A7B7'; 
+        } else {
+            confirmButton.style.backgroundColor = 'gray'; 
+        }
+    });
+
+
+    var modal = document.getElementById('myModal');
+    var link = document.getElementById("openModal");
+    var span = document.getElementsByClassName("close")[0];
+    var modalForm = document.getElementById('modalForm');
+    var confirmButton = document.getElementById('confirmButton');
+
+    link.onclick = function () {
+        
+        modal.style.display = "block";
+        confirmButton.style.display = "block";
+    }
+
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+
+    modalForm.addEventListener('submit', function (event) {
+        modalForm.submit();
+    });
+
+</script>

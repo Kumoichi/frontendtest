@@ -1,0 +1,62 @@
+.white-back {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+
+.skip-button {
+    background-color: #11A7B7;
+    color: white;
+    padding: 15px;
+    border-radius: 15px;
+    text-decoration: none;
+    display: block; 
+    text-align: center;
+    width: 70%;
+    margin: 0 auto; 
+    margin-bottom: 30px;
+    margin-top: 20px; 
+}
+
+.image-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+}
+
+.containers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.containers div {
+    border: 2px solid gray;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.containers div.selected {
+    border-color: orange;
+}
+
+.center-bottom-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.button-wrapper {
+    display: flex;
+    gap: 20px;
+}
+
+.pagemovement-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

@@ -1,0 +1,56 @@
+
+ .title{
+  margin: 0;
+  padding: 0;
+  height: 20px;
+ }
+
+ .top-bar {
+    margin: 0;
+    color: #fff; 
+    padding: 0px; 
+    display: flex; 
+    align-items: cent er; 
+    justify-content: space-between; 
+  }
+  
+  .logo img {
+    width: 50px; 
+    height: auto; 
+  }
+  
+  .title {
+    color: gray;
+    text-align: center;
+    padding-right: 230px;
+  }
+
+  .container{
+    float: left;
+    width: 200px;
+  }
+
+.logout-button {
+        justify-content: center; 
+        align-items: center; 
+        background-color: #767676; 
+        color: white; 
+        padding: 15px; 
+        border-radius: 15px; 
+        text-decoration: none; 
+        display: inline-block; 
+        margin-top: 20px; 
+        margin-left:20px;
+        width: 130px; 
+        height: 20px; 
+        text-align: center; 
+    }
+
+    .dashboard-page .logout-button + .logout-button {
+      display: none;
+  }
+
+    .logout-button:hover {
+        background-color: #999; 
+    }
+

@@ -1,0 +1,85 @@
+
+h2{
+    text-align: center;
+    margin-top: 0; 
+    padding-top: 0; 
+    color: gray;
+}
+
+.three-container {
+    width: 70%;
+    margin: 1px 30px 0;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+
+}
+
+
+.shape-container {
+    display: flex;
+    float:left;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-bottom: 51px solid transparent;
+    border-left: 60px solid #11A7B7;
+}
+.square {
+    position: relative;
+    width: 170px;
+    height: 100px;
+    background-color: #11A7B7;
+}
+
+.instruction{
+    position: absolute;
+    font-size: 16px;
+    color: white;
+    width: 150px;
+    top: 40px;
+    left: 80px;
+}
+
+.instruction3{
+    position: absolute;
+    font-size: 16px;
+    color: white;
+    width: 150px;
+    top: 40px;
+    left: 65px;
+}
+
+.triangle-hide {
+    position: absolute;
+    z-index: 1;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-bottom: 51px solid transparent;
+    border-left: 60px solid white;
+}
+
+
+
+.selectionphase .shape-container + .shape-container .triangle {
+    border-left: 60px solid gray;
+}
+
+.selectionphase .shape-container + .shape-container .square {
+    background-color: gray;
+}
+
+
+.summaryphase .shape-container + .shape-container + .shape-container .triangle {
+    border-left: 60px solid gray;
+}
+
+.summaryphase .shape-container + .shape-container + .shape-container .square {
+    background-color: gray;
+}
+
+

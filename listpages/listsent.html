@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/topbar.css"> 
+
+</head>
+<body>
+    <style>
+        body{
+            position: relative;
+                }
+ 
+        .centered-container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        .result-modal{
+            background-color: white;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 400px;
+            height: 300px;
+            border: 1px solid black;
+            position: relative;
+        }
+
+        a{
+            text-decoration: none;
+            color: white;
+        }
+
+        .tomain{
+            background-color: gray;
+            text-decoration: none;
+            color: white;
+            padding: 15px;
+            border-radius: 15px;
+            width: 150px; 
+            text-align: center;
+            margin-right: 10px; 
+            cursor: pointer;
+        }
+    </style>
+
+    
+<div class="top-bar">
+  <div class="logo">
+    <img src="../images/saleslab.png" alt="Logo" style="height:80px; width:220px;">
+  </div>
+  <div></div> 
+</div>
+
+ <div class="container" style="position: absolute;"> 
+  <a href="../auth/login.html" class="logout-button">ログアウト>></a>
+  <a href="../dashboard.html" class="logout-button">メインメニュー</a>
+</div>
+
+
+<div>
+
+
+    <div class="centered-container">
+    <div class="result-modal">
+        <h2 style="color: gray;">リストが送信されました</h2>
+        <div class="tomain"><a href="../dashboard.html">メインメニュー</a><div>
+    </div>
+    </div>
+</body>
+</html>

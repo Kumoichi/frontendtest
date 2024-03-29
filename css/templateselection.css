@@ -1,0 +1,21 @@
+.template {
+    width: 500px; 
+    height: auto; 
+    margin: 0 auto; 
+    margin-top: 50px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px; 
+    border: 1px solid gray; 
+    word-break: break-all; 
+    user-select: text; 
+    cursor: pointer; 
+    padding: 20px;
+    border-width: 2px;
+}
+
+        /* Define the CSS for the selected template */
+        .template-selected {
+            border: 2px solid red; /* Change the border color to red */
+        }

@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../css/listpagecss/listselection.css">
+    <link href="../css/listpagecss/circle-selection.css" rel="stylesheet">
+    <link href="../css/listpagecss/modal-page.css" rel="stylesheet">
+    <script src="../js/modal-pages.js"></script>
+
+
+    <title>Document</title>
+    
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Bar</title>
+    <link rel="stylesheet" href="../css/topbar.css"> 
+    </head>
+    <body>
+    
+    <div class="top-bar">
+      <div class="logo">
+        <img src="../images/saleslab.png" alt="Logo" style="height:80px; width:220px;">
+      </div>
+      <div class="title">
+        <h1>ウェブアプリ名称</h1> 
+      </div>
+      <div></div> 
+    </div>
+    <div class="container">
+      <a href="../auth/login.html" class="logout-button">ログアウト>></a>
+      <a href="../dashboard.html" class="logout-button">メインメニュー</a>
+    </div>
+    </body>
+    </html> 
+    
+</head>
+<body>
+<div style="margin-left:21%;">項目で詳細条件を選択してください</div> 
+    <!-- 都道府県のモーダルウィンドウ -->
+    <div id="myModal" class="modal">
+
+        <!-- 都道府県Modal画面 -->
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="prefecture-modal-title">地域を選択してください。</div>
+            <div class="prefecture-modal-title-underline"></div>
+        
+            <div class="all-nothing">
+                <input type="checkbox" id="selectAllCheckbox" onclick="toggleAllCheckboxes()">全て<br>
+                <input type="checkbox" id="noneCheckbox" onclick="deselectAll()" style="margin-left:40px;">選択しない
+            </div>
+            <div class="whole-prefectures">
+                <div class="flex-prefectures leftmost">
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="hokkaidoCheckbox" name="region" class="region-checkbox" value="北海道" onclick="updateSelectedRegion()">
+                        <label for="hokkaidoCheckbox">北海道</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="aomoriCheckbox" name="region" class="region-checkbox" value="青森県" onclick="updateSelectedRegion()">
+                        <label for="aomoriCheckbox">青森県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="iwateCheckbox" name="region" class="region-checkbox" value="岩手県" onclick="updateSelectedRegion()">
+                        <label for="iwateCheckbox">岩手県</label><br>
+                    </div>
+        
+                    <!-- Repeat for other prefectures -->
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="miyagiCheckbox" name="region" class="region-checkbox" value="宮城県" onclick="updateSelectedRegion()">
+                        <label for="miyagiCheckbox">宮城県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="akitaCheckbox" name="region" class="region-checkbox" value="秋田県" onclick="updateSelectedRegion()">
+                        <label for="akitaCheckbox">秋田県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="yamagataCheckbox" name="region" class="region-checkbox" value="山形県" onclick="updateSelectedRegion()">
+                        <label for="yamagataCheckbox">山形県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="fukushimaCheckbox" name="region" class="region-checkbox" value="福島県" onclick="updateSelectedRegion()">
+                        <label for="fukushimaCheckbox">福島県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="ibarakiCheckbox" name="region" class="region-checkbox" value="茨城県" onclick="updateSelectedRegion()">
+                        <label for="ibarakiCheckbox">茨城県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="tochigiCheckbox" name="region" class="region-checkbox" value="栃木県" onclick="updateSelectedRegion()">
+                        <label for="tochigiCheckbox">栃木県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="gunmaCheckbox" name="region" class="region-checkbox" value="群馬県" onclick="updateSelectedRegion()">
+                        <label for="gunmaCheckbox">群馬県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="saitamaCheckbox" name="region" class="region-checkbox" value="埼玉県" onclick="updateSelectedRegion()">
+                        <label for="saitamaCheckbox">埼玉県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="chibaCheckbox" name="region" class="region-checkbox" value="千葉県" onclick="updateSelectedRegion()">
+                        <label for="chibaCheckbox">千葉県</label><br>
+                    </div>
+                </div>
+        
+                <div class="flex-prefectures">
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="tokyoCheckbox" name="region" class="region-checkbox" value="東京都" onclick="updateSelectedRegion()">
+                        <label for="tokyoCheckbox">東京都</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="kanagawaCheckbox" name="region" class="region-checkbox" value="神奈川県" onclick="updateSelectedRegion()">
+                        <label for="kanagawaCheckbox">神奈川県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="niigataCheckbox" name="region" class="region-checkbox" value="新潟県" onclick="updateSelectedRegion()">
+                        <label for="niigataCheckbox">新潟県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="toyamaCheckbox" name="region" class="region-checkbox" value="富山県" onclick="updateSelectedRegion()">
+                        <label for="toyamaCheckbox">富山県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="ishikawaCheckbox" name="region" class="region-checkbox" value="石川県" onclick="updateSelectedRegion()">
+                        <label for="ishikawaCheckbox">石川県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="fukuiCheckbox" name="region" class="region-checkbox" value="福井県" onclick="updateSelectedRegion()">
+                        <label for="fukuiCheckbox">福井県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="yamanashiCheckbox" name="region" class="region-checkbox" value="山梨県" onclick="updateSelectedRegion()">
+                        <label for="yamanashiCheckbox">山梨県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="naganoCheckbox" name="region" class="region-checkbox" value="長野県" onclick="updateSelectedRegion()">
+                        <label for="naganoCheckbox">長野県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="gifuCheckbox" name="region" class="region-checkbox" value="岐阜県" onclick="updateSelectedRegion()">
+                        <label for="gifuCheckbox">岐阜県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="shizuokaCheckbox" name="region" class="region-checkbox" value="静岡県" onclick="updateSelectedRegion()">
+                        <label for="shizuokaCheckbox">静岡県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="aichiCheckbox" name="region" class="region-checkbox" value="愛知県" onclick="updateSelectedRegion()">
+                        <label for="aichiCheckbox">愛知県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="mieCheckbox" name="region" class="region-checkbox"  value="三重県" onclick="updateSelectedRegion()">
+                        <label for="mieCheckbox">三重県</label><br>
+                    </div>
+                </div>
+        
+                <div class="flex-prefectures">
+                <div class="input-prefecture-adjustment">
+                    <input type="checkbox" id="shigaCheckbox" name="region" class="region-checkbox" value="滋賀県" onclick="updateSelectedRegion()">
+                    <label for="shigaCheckbox">滋賀県</label><br>
+                </div>
+        
+                <div class="input-prefecture-adjustment">
+                    <input type="checkbox" id="kyotoCheckbox" name="region" class="region-checkbox" value="京都府" onclick="updateSelectedRegion()">
+                    <label for="kyotoCheckbox">京都府</label><br>
+                </div>
+        
+                <div class="input-prefecture-adjustment">
+                    <input type="checkbox" id="osakaCheckbox" name="region" class="region-checkbox" value="大阪府" onclick="updateSelectedRegion()">
+                    <label for="osakaCheckbox">大阪府</label><br>
+                </div>
+        
+                <div class="input-prefecture-adjustment">
+                    <input type="checkbox" id="hyogoCheckbox" name="region" class="region-checkbox" value="兵庫県" onclick="updateSelectedRegion()">
+                    <label for="hyogoCheckbox">兵庫県</label><br>
+                </div>
+        
+                <div class="input-prefecture-adjustment">
+                    <input type="checkbox" id="naraCheckbox" name="region" class="region-checkbox" value="奈良県" onclick="updateSelectedRegion()">
+                    <label for="naraCheckbox">奈良県</label><br>
+                </div>
+        
+                <div class="input-prefecture-adjustment">
+                    <input type="checkbox" id="wakayamaCheckbox" name="region" class="region-checkbox"  value="和歌山県" onclick="updateSelectedRegion()">
+                    <label for="wakayamaCheckbox">和歌山県</label><br>
+                </div>
+        
+                <div class="input-prefecture-adjustment">
+                    <input type="checkbox" id="tottoriCheckbox" name="region" class="region-checkbox" value="鳥取県" onclick="updateSelectedRegion()">
+                    <label for="tottoriCheckbox">鳥取県</label><br>
+                </div>
+        
+                <div class="input-prefecture-adjustment">
+                    <input type="checkbox" id="shimaneCheckbox" name="region" class="region-checkbox" value="島根県" onclick="updateSelectedRegion()">
+                    <label for="shimaneCheckbox">島根県</label><br>
+                </div>
+        
+                <div class="input-prefecture-adjustment">
+                    <input type="checkbox" id="okayamaCheckbox" name="region" class="region-checkbox" value="岡山県" onclick="updateSelectedRegion()">
+                    <label for="okayamaCheckbox">岡山県</label><br>
+                </div>
+        
+                <div class="input-prefecture-adjustment">
+                    <input type="checkbox" id="hiroshimaCheckbox" name="region" class="region-checkbox" value="広島県" onclick="updateSelectedRegion()">
+                    <label for="hiroshimaCheckbox">広島県</label><br>
+                </div>
+        
+                <div class="input-prefecture-adjustment">
+                    <input type="checkbox" id="yamaguchiCheckbox" name="region" class="region-checkbox" value="山口県" onclick="updateSelectedRegion()">
+                    <label for="yamaguchiCheckbox">山口県</label><br>
+                </div>
+        
+                <div class="input-prefecture-adjustment">
+                    <input type="checkbox" id="tokushimaCheckbox" name="region" class="region-checkbox" value="徳島県" onclick="updateSelectedRegion()">
+                    <label for="tokushimaCheckbox">徳島県</label><br>
+                </div>
+        
+                </div>
+        
+                <div class="flex-prefectures">
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="kagawaCheckbox" name="region" class="region-checkbox" value="香川県" onclick="updateSelectedRegion()">
+                        <label for="kagawaCheckbox">香川県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="ehimeCheckbox" name="region" class="region-checkbox" value="愛媛県" onclick="updateSelectedRegion()">
+                        <label for="ehimeCheckbox">愛媛県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="kochiCheckbox" name="region" class="region-checkbox" value="高知県" onclick="updateSelectedRegion()">
+                        <label for="kochiCheckbox">高知県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="fukuokaCheckbox" name="region" class="region-checkbox" value="福岡県" onclick="updateSelectedRegion()">
+                        <label for="fukuokaCheckbox">福岡県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="sagaCheckbox" name="region" class="region-checkbox" value="佐賀県" onclick="updateSelectedRegion()">
+                        <label for="sagaCheckbox">佐賀県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="nagasakiCheckbox" name="region" class="region-checkbox" value="長崎県" onclick="updateSelectedRegion()">
+                        <label for="nagasakiCheckbox">長崎県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="kumamotoCheckbox" name="region" class="region-checkbox" value="熊本県" onclick="updateSelectedRegion()">
+                        <label for="kumamotoCheckbox">熊本県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="oitaCheckbox" name="region" class="region-checkbox" value="大分県" onclick="updateSelectedRegion()">
+                        <label for="oitaCheckbox">大分県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="miyazakiCheckbox" name="region" class="region-checkbox" value="宮崎県" onclick="updateSelectedRegion()">
+                        <label for="miyazakiCheckbox">宮崎県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="kagoshimaCheckbox" name="region" class="region-checkbox" value="鹿児島県" onclick="updateSelectedRegion()">
+                        <label for="kagoshimaCheckbox">鹿児島県</label><br>
+                    </div>
+        
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="okinawaCheckbox" name="region" class="region-checkbox" value="沖縄県" onclick="updateSelectedRegion()">
+                        <label for="okinawaCheckbox">沖縄県</label><br>
+                    </div>
+        
+                </div>
+            </div>
+            </div>
+        </div>
+    <!-- 法人格モーダルウィンドウ -->
+    <div id="corporateStatusModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCorporateStatusModal()">&times;</span>
+            <div class="prefecture-modal-title">法人格を選択してください</div>
+            <div class="prefecture-modal-title-underline"></div>
+    
+            <div class="all-nothing">
+                <input type="checkbox" id="selectAllCorporateStatusCheckbox" onclick="toggleAllCorporateStatusCheckboxes()">全て<br>
+                <input type="checkbox" id="noneCheckbox" onclick="deselectAllCorporateStatus()" style="margin-left:40px;">選択しない
+            </div>
+            <div class="whole-corporateStatus">
+                <div class="flex-prefectures leftmost">
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="kabusikigaishaCheckbox" name="corporation" class="corporateStatus-checkbox" value="株式会社" onclick="updateSelectedCorporateStatus()">
+                        <label for="kabusikigaishaCheckbox">株式会社</label><br>
+                    </div>
+    
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="goumeigaishaCheckbox" name="coporation" class="corporateStatus-checkbox" value="合名会社" onclick="updateSelectedCorporateStatus()">
+                        <label for="goumeigaishaCheckbox">合名会社</label><br>
+                    </div>
+    
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="tokuteihieigyoudouhoujinCheckbox" name="corporation" class="corporateStatus-checkbox" value="特定非営利活動法人" onclick="updateSelectedCorporateStatus()">
+                        <label for="tokuteihieigyoudouhoujinCheckbox">特定非営利活動法人</label><br>
+                    </div>
+                </div>
+    
+                <div class="flex-prefectures">
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="yuugengaishaCheckbox" name="corporation" class="corporateStatus-checkbox" value="有限会社" onclick="updateSelectedCorporateStatus()">
+                        <label for="yuugengaishaCheckbox">有限会社</label><br>
+                    </div>
+    
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="shakaifukushiCheckbox" name="corporation" class="corporateStatus-checkbox" value="社会福祉法人" onclick="updateSelectedCorporateStatus()">
+                        <label for="shakaifukushiCheckbox">社会福祉法人</label><br>
+                    </div>
+    
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="gakkouhoujinCheckbox" name="corporation" class="corporateStatus-checkbox" value="学校法人" onclick="updateSelectedCorporateStatus()">
+                        <label for="gakkouhoujinCheckbox">学校法人</label><br>
+                    </div>
+                </div>
+                <div class="flex-prefectures">
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="godougaishaCheckbox" name="corporation" class="corporateStatus-checkbox" value="合同会社" onclick="updateSelectedCorporateStatus()">
+                        <label for="godougaishaCheckbox">合同会社</label><br>
+                    </div>
+    
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="shadanhoujinCheckbox" name="corporation" class="corporateStatus-checkbox" value="社団法人" onclick="updateSelectedCorporateStatus()">
+                        <label for="shadanhoujinCheckbox">社団法人</label><br>
+                    </div>
+    
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="zaidanhoujinCheckbox" name="corporation" class="corporateStatus-checkbox" value="財団法人" onclick="updateSelectedCorporateStatus()">
+                        <label for="zaidanhoujinCheckbox">財団法人</label><br>
+                    </div>
+                </div>
+    
+                <div class="flex-prefectures">
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="goushigaishaCheckbox" name="corporation" class="corporateStatus-checkbox" value="合資会社" onclick="updateSelectedCorporateStatus()">
+                        <label for="goushigaishaCheckbox">合資会社</label><br>
+                    </div>
+    
+                    <div class="input-prefecture-adjustment">
+                        <input type="checkbox" id="sonotaCheckbox" name="corporation" class="corporateStatus-checkbox" value="その他" onclick="updateSelectedCorporateStatus()">
+                        <label for="sonotaCheckbox">その他</label><br>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 業種モーダルウィンドウ -->
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="{{ asset('js/modal-page.js') }}"></script> -->
+    <style>
+        
+.inner-box {
+    width: 350px; 
+    height: 50px;
+    background-color: white;
+    margin: 10px;
+}
+
+/* .nested-div-description {
+    margin-bottom: 5px;
+} */
+
+.nested-div-choice {
+    border: solid 1px gray;
+    width: 100%;
+    position: relative; 
+    height: 40px;
+    padding: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: white;
+}
+
+.down-arrow {
+    position: absolute; 
+    right: 10px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+}
+
+
+
+.modal-content-insidebox
+{
+    border: 1px solid black;
+    height: 400px;
+    width: 900px;
+    overflow: auto;
+}
+
+.blue-box-section{
+    background-color:rgb(235, 248, 254);
+
+}
+
+.box-section-inside{
+    margin-left: 50px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+    </style>
+   
+</head>
+<body>
+
+
+<!-- make modal window here -->
+<div id="industryModal" class="modal">
+    <div class="modal-content">
+
+    <span class="close" onclick="closeIndustryModal()">&times;</span>
+    <div class="prefecture-modal-title">業種を選択してください</div>
+    <div class="prefecture-modal-title-underline"></div>
+
+        <input type="checkbox" id="selectAllIndustryCheckbox" onclick="toggleAllIndustryCheckboxes()">全て<br>
+        <input type="checkbox" id="noneCheckbox" onclick="deselectAllIndustry()">選択しない
+
+        <div class="modal-content-insidebox">
+            <div class="blue-box-section">
+                <input type="checkbox" id="selectRingyouCheckbox" class="wrap-checkbox" onclick="toggleCheckboxes('Ringyou')">林業 (A)<br>
+                <div class="box-section-inside">
+                    <input type="checkbox" id="nougyouCheckbox" class="industry-checkbox Ringyou" name="region" value="農業" onclick="updateSelectedIndustry()">
+                    <label for="nougyouCheckbox">農業 (01)</label><br>
+                    <input type="checkbox" id="ringyouCheckbox" class="industry-checkbox Ringyou" name="region" value="林業" onclick="updateSelectedIndustry()">
+                    <label for="ringyouCheckbox">林業(02)</label>
+                </div>
+            </div>
+
+            <div class="white-box-section">
+                <input type="checkbox" id="selectGyogyouCheckbox" class="wrap-checkbox" onclick="toggleCheckboxes('Gyogyou')">漁業 (B)<br>
+                <div class="box-section-inside">
+                    <input type="checkbox" id="gyogyouCheckbox" class="industry-checkbox Gyogyou" name="region" value="漁業" onclick="updateSelectedIndustry()">
+                    <label for="gyogyouCheckbox">漁業（水産養殖業を除く） (03)</label><br>
+                    <input type="checkbox" id="suisanyoushokugyouCheckbox" class="industry-checkbox Gyogyou" name="region" value="水産養殖業" onclick="updateSelectedIndustry()">
+                    <label for="saitamaCheckbox">水産養殖業 (04)</label>
+                </div>
+            </div>
+
+
+            <div class="blue-box-section">
+                <input type="checkbox" id="selectKougyouCheckbox" class="wrap-checkbox" onclick="toggleCheckboxes('Kougyou')">鉱業、採石業、砂利採取業 (C)<br>
+                <div class="box-section-inside">
+                    <input type="checkbox" id="kougyouSeizougyouCheckbox" class="industry-checkbox Kougyou" name="region" value="鉱業、採石業、砂利採取業" onclick="updateSelectedIndustry()">
+                    <label for="kougyouSeizougyouCheckbox">鉱業、採石業、砂利採取業 (05)</label><br>
+                </div>
+            </div>
+
+            <div class="white-box-section">
+                <input type="checkbox" id="selectKensetsugyouCheckbox" class="wrap-checkbox" onclick="toggleCheckboxes('Kensetsugyou')">建設業 (D)<br>
+                <div class="box-section-inside">
+                    <input type="checkbox" id="sougouKougyouCheckbox" class="industry-checkbox Kensetsugyou" name="region" value="総合工事業" onclick="updateSelectedIndustry()">
+                    <label for="sougouKougyouCheckbox">総合工事業 (06)</label><br>
+                    <input type="checkbox" id="shokubetsuKougyouCheckbox" class="industry-checkbox Kensetsugyou" name="region" value="職別工事業（設備工事業を除く） " onclick="updateSelectedIndustry()">
+                    <label for="shokubetsuKougyouCheckbox">職別工事業（設備工事業を除く） (07)</label><br>
+                    <input type="checkbox" id="setsubiKougyouCheckbox" class="industry-checkbox Kensetsugyou" name="region" value="設備工事業" onclick="updateSelectedIndustry()">
+                    <label for="setsubiKougyouCheckbox">設備工事業 (08)</label><br>
+                </div>
+            </div>
+
+            <div class="blue-box-section">
+            <input type="checkbox" id="selectSeizougyouCheckbox" class="wrap-checkbox" onclick="toggleCheckboxes('Seizougyou')">製造業 (E)<br>
+            <div class="box-section-inside">
+                <input type="checkbox" id="shokuryouhinSeizougyouCheckbox" class="industry-checkbox Seizougyou" name="region" value="食料品製造業" onclick="updateSelectedIndustry()">
+                <label for="shokuryouhinSeizougyouCheckbox">食料品製造業 (09)</label><br>
+                <input type="checkbox" id="inryouTobaccoSeizougyouCheckbox" class="industry-checkbox Seizougyou" name="region" value="飲料・たばこ・飼料製造業" onclick="updateSelectedIndustry()">
+                <label for="inryouTobaccoSeizougyouCheckbox">飲料・たばこ・飼料製造業 (10)</label><br>
+                <input type="checkbox" id="seniKougyouSeizougyouCheckbox" class="industry-checkbox Seizougyou" name="region" value="繊維工業" onclick="updateSelectedIndustry()">
+                <label for="seniKougyouSeizougyouCheckbox">繊維工業 (11)</label><br>
+                <input type="checkbox" id="mokuzaiSeizougyouCheckbox" class="industry-checkbox Seizougyou" name="region" value="木材・木製品製造業（家具を除く）" onclick="updateSelectedIndustry()">
+                <label for="mokuzaiSeizougyouCheckbox">木材・木製品製造業（家具を除く） (12)</label><br>
+                <input type="checkbox" id="kaguSeizougyouCheckbox" class="industry-checkbox Seizougyou" name="region" value="家具・装備品製造業" onclick="updateSelectedIndustry()">
+                <label for="kaguSeizougyouCheckbox">家具・装備品製造業 (13)</label><br>
+                <input type="checkbox" id="parupuSeizougyouCheckbox" class="industry-checkbox Seizougyou" name="region" value="パルプ・紙・紙加工品製造業" onclick="updateSelectedIndustry()">
+                <label for="parupuSeizougyouCheckbox">パルプ・紙・紙加工品製造業 (14)</label><br>
+                <input type="checkbox" id="insatsuSeizougyouCheckbox" class="industry-checkbox Seizougyou" name="region" value="印刷・同関連業" onclick="updateSelectedIndustry()">
+                <label for="insatsuSeizougyouCheckbox">印刷・同関連業 (15)</label><br>
+                <input type="checkbox" id="kagakuSeizougyouCheckbox" class="industry-checkbox Seizougyou" name="region" value="化学工業" onclick="updateSelectedIndustry()">
+                <label for="kagakuSeizougyouCheckbox">化学工業 (16)</label><br>
+                <input type="checkbox" id="sekiyuyouhinSeizougyouCheckbox" class="industry-checkbox Seizougyou" name="region" value="石油製品・石炭製品製造業" onclick="updateSelectedIndustry()">
+                <label for="sekiyuyouhinSeizougyouCheckbox">石油製品・石炭製品製造業 (17)</label><br>
+                <input type="checkbox" id="purasuchikkuSeizougyouCheckbox" class="industry-checkbox Seizougyou" name="region" value="プラスチック製品製造業（別掲を除く）" onclick="updateSelectedIndustry()">
+                <label for="purasuchikkuSeizougyouCheckbox">プラスチック製品製造業（別掲を除く） (18)</label><br>
+                <input type="checkbox" id="gomuSeizougyouCheckbox" class="industry-checkbox Seizougyou" name="region" value="ゴム製品製造業" onclick="updateSelectedIndustry()">
+                <label for="gomuSeizougyouCheckbox">ゴム製品製造業 (19)</label><br>
+                <input type="checkbox" id="namegawaSeizougyouCheckbox" class="industry-checkbox Seizougyou" name="region" value="なめし革・同製品・毛皮製造業" onclick="updateSelectedIndustry()">
+                <label for="namegawaSeizougyouCheckbox">なめし革・同製品・毛皮製造業 (20)</label><br>
+                <input type="checkbox" id="kamaSeizougyouCheckbox" class="industry-checkbox Seizougyou" name="region" value="窯業・土石製品製造業" onclick="updateSelectedIndustry()">
+                <label for="kamaSeizougyouCheckbox">窯業・土石製品製造業 (21)</label><br>
+                <input type="checkbox" id="tekkoSeizougyouCheckbox" class="industry-checkbox Seizougyou" name="region" value="鉄鋼業" onclick="updateSelectedIndustry()">
+                <label for="tekkoSeizougyouCheckbox">鉄鋼業 (22)</label><br>
+                <input type="checkbox" id="hitekkkinzokuSeizougyouCheckbox" class="industry-checkbox Seizougyou" name="region" value="非鉄金属製造業" onclick="updateSelectedIndustry()">
+                <label for="hitekkkinzokuSeizougyouCheckbox">非鉄金属製造業 (23)</label><br>
+                <input type="checkbox" id="kinzokuseihinSeizougyouCheckbox" class="industry-checkbox Seizougyou" name="region" value="金属製品製造業" onclick="updateSelectedIndustry()">
+                <label for="kinzokuseihinSeizougyouCheckbox">金属製品製造業 (24)</label><br>
+                <input type="checkbox" id="hanyouSeizougyouCheckbox" class="industry-checkbox Seizougyou" name="region" value="はん用機械器具製造業" onclick="updateSelectedIndustry()">
+                <label for="hanyouSeizougyouCheckbox">はん用機械器具製造業 (25)</label><br>
+                <input type="checkbox" id="seisanSeizougyouCheckbox" class="industry-checkbox Seizougyou" name="region" value="生産用機械器具製造業" onclick="updateSelectedIndustry()">
+                <label for="seisanSeizougyouCheckbox">生産用機械器具製造業 (26)</label><br>
+                <input type="checkbox" id="gyoumuSeizougyouCheckbox" class="industry-checkbox Seizougyou" name="region" value="業務用機械器具製造業" onclick="updateSelectedIndustry()">
+                <label for="gyoumuSeizougyouCheckbox">業務用機械器具製造業 (27)</label><br>
+                <input type="checkbox" id="denshiSeizougyouCheckbox" class="industry-checkbox Seizougyou" name="region" value="電子部品・デバイス・電子回路製造業" onclick="updateSelectedIndustry()">
+                <label for="denshiSeizougyouCheckbox">電子部品・デバイス・電子回路製造業 (28)</label><br>
+                <input type="checkbox" id="denkiSeizougyouCheckbox" class="industry-checkbox Seizougyou" name="region" value="電気機械器具製造業" onclick="updateSelectedIndustry()">
+                <label for="denkiSeizougyouCheckbox">電気機械器具製造業 (29)</label><br>
+                <input type="checkbox" id="jouhouSeizougyouCheckbox" class="industry-checkbox Seizougyou" name="region" value="情報通信機械器具製造業" onclick="updateSelectedIndustry()">
+                <label for="jouhouSeizougyouCheckbox">情報通信機械器具製造業 (30)</label><br>
+                <input type="checkbox" id="yusouSeizougyouCheckbox" class="industry-checkbox Seizougyou" name="region" value="輸送用機械器具製造業" onclick="updateSelectedIndustry()">
+                <label for="yusouSeizougyouCheckbox">輸送用機械器具製造業 (31)</label><br>
+                <input type="checkbox" id="sonotaSeizougyouCheckbox" class="industry-checkbox Seizougyou" name="region" value="その他の製造業" onclick="updateSelectedIndustry()">
+                <label for="sonotaSeizougyouCheckbox">その他の製造業 (32)</label><br>
+                </div>
+            </div>
+
+            <div class="white-box-section">
+                <input type="checkbox" id="selectDenkiGasuCheckbox" class="wrap-checkbox" onclick="toggleCheckboxes('DenkiGasu')">電気・ガス・熱供給・水道業 (F)<br>
+                <div class="box-section-inside">
+                    <input type="checkbox" id="denkiCheckbox" class="industry-checkbox DenkiGasu" name="region" value="電気業" onclick="updateSelectedIndustry()">
+                    <label for="denkiCheckbox">電気業 (33)</label><br>
+                    <input type="checkbox" id="gasuCheckbox" class="industry-checkbox DenkiGasu" name="region" value="ガス業" onclick="updateSelectedIndustry()">
+                    <label for="gasuCheckbox">ガス業 (34)</label><br>
+                    <input type="checkbox" id="netsukyokyuCheckbox" class="industry-checkbox DenkiGasu" name="region" value="熱供給業" onclick="updateSelectedIndustry()">
+                    <label for="netsukyokyuCheckbox">熱供給業 (35)</label><br>
+                    <input type="checkbox" id="suidoCheckbox" class="industry-checkbox DenkiGasu" name="region" value="水道業" onclick="updateSelectedIndustry()">
+                    <label for="suidoCheckbox">水道業 (36)</label><br>
+                </div>
+            </div>
+
+            <div class="blue-box-section">
+                <input type="checkbox" id="selectJouhouTsushinCheckbox" class="wrap-checkbox" onclick="toggleCheckboxes('JouhouTsushin')">情報通信業 (G)<br>
+                <div class="box-section-inside">
+                    <input type="checkbox" id="tsushinCheckbox" class="industry-checkbox JouhouTsushin" name="region" value="通信業" onclick="updateSelectedIndustry()">
+                    <label for="tsushinCheckbox">通信業 (37)</label><br>
+                    <input type="checkbox" id="housouCheckbox" class="industry-checkbox JouhouTsushin" name="region" value="放送業" onclick="updateSelectedIndustry()">
+                    <label for="housouCheckbox">放送業 (38)</label><br>
+                    <input type="checkbox" id="jouhouServiceCheckbox" class="industry-checkbox JouhouTsushin" name="region" value="情報サービス業" onclick="updateSelectedIndustry()">
+                    <label for="jouhouServiceCheckbox">情報サービス業 (39)</label><br>
+                    <input type="checkbox" id="internetServiceCheckbox" class="industry-checkbox JouhouTsushin" name="region" value="インターネット附随サービス業" onclick="updateSelectedIndustry()">
+                    <label for="internetServiceCheckbox">インターネット附随サービス業 (40)</label><br>
+                    <input type="checkbox" id="eizouCheckbox" class="industry-checkbox JouhouTsushin" name="region" value="映像・音声・文字情報制作業" onclick="updateSelectedIndustry()">
+                    <label for="eizouCheckbox">映像・音声・文字情報制作業 (41)</label><br>
+                </div>
+            </div>
+
+            <div class="white-box-section">
+                <input type="checkbox" id="selectUnyuYubinCheckbox" class="wrap-checkbox" onclick="toggleCheckboxes('UnyuYubin')">運輸業、郵便業 (H)<br>
+                <div class="box-section-inside">
+                    <input type="checkbox" id="tetsudoCheckbox" class="industry-checkbox UnyuYubin" name="region" value="鉄道業" onclick="updateSelectedIndustry()">
+                    <label for="tetsudoCheckbox">鉄道業 (42)</label><br>
+                    <input type="checkbox" id="douroRyokakuCheckbox" class="industry-checkbox UnyuYubin" name="region" value="道路旅客運送業" onclick="updateSelectedIndustry()">
+                    <label for="douroRyokakuCheckbox">道路旅客運送業 (43)</label><br>
+                    <input type="checkbox" id="douroKamotsuCheckbox" class="industry-checkbox UnyuYubin" name="region" value="道路貨物運送業" onclick="updateSelectedIndustry()">
+                    <label for="douroKamotsuCheckbox">道路貨物運送業 (44)</label><br>
+                    <input type="checkbox" id="suiryokuCheckbox" class="industry-checkbox UnyuYubin" name="region" value="水運業" onclick="updateSelectedIndustry()">
+                    <label for="suiryokuCheckbox">水運業 (45)</label><br>
+                    <input type="checkbox" id="koukuUnyuCheckbox" class="industry-checkbox UnyuYubin" name="region" value="航空運輸業" onclick="updateSelectedIndustry()">
+                    <label for="koukuUnyuCheckbox">航空運輸業 (46)</label><br>
+                    <input type="checkbox" id="soukoGyouCheckbox" class="industry-checkbox UnyuYubin" name="region" value="倉庫業" onclick="updateSelectedIndustry()">
+                    <label for="soukoGyouCheckbox">倉庫業 (47)</label><br>
+                    <input type="checkbox" id="unyuServiceCheckbox" class="industry-checkbox UnyuYubin" name="region" value="運輸に附帯するサービス業" onclick="updateSelectedIndustry()">
+                    <label for="unyuServiceCheckbox">運輸に附帯するサービス業 (48)</label><br>
+                    <input type="checkbox" id="yuubinCheckbox" class="industry-checkbox UnyuYubin" name="region" value="郵便業（信書便事業を含む）" onclick="updateSelectedIndustry()">
+                    <label for="yuubinCheckbox">郵便業（信書便事業を含む） (49)</label><br>
+                </div>
+            </div>
+
+
+
+            <div class="blue-box-section">
+                <input type="checkbox" id="selectOrosiKouriCheckbox" class="wrap-checkbox" onclick="toggleCheckboxes('OrosiKouri')">卸売業、小売業 (I)<br>
+                <div class="box-section-inside">
+                    <input type="checkbox" id="kakushuOrosiCheckbox" class="industry-checkbox OrosiKouri" name="region" value="各種商品卸売業" onclick="updateSelectedIndustry()">
+                    <label for="kakushuOrosiCheckbox">各種商品卸売業 (50)</label><br>
+                    <input type="checkbox" id="seniOrosiCheckbox" class="industry-checkbox OrosiKouri" name="region" value="繊維・衣服等卸売業" onclick="updateSelectedIndustry()">
+                    <label for="seniOrosiCheckbox">繊維・衣服等卸売業 (51)</label><br>
+                    <input type="checkbox" id="drinkOrosiCheckbox" class="industry-checkbox OrosiKouri" name="region" value="飲食料品卸売業" onclick="updateSelectedIndustry()">
+                    <label for="drinkOrosiCheckbox">飲食料品卸売業 (52)</label><br>
+                    <input type="checkbox" id="kenzaiOrosiCheckbox" class="industry-checkbox OrosiKouri" name="region" value="建築材料、鉱物・金属材料等卸売業" onclick="updateSelectedIndustry()">
+                    <label for="kenzaiOrosiCheckbox">建築材料、鉱物・金属材料等卸売業 (53)</label><br>
+                    <input type="checkbox" id="kikaiOrosiCheckbox" class="industry-checkbox OrosiKouri" name="region" value="機械器具卸売業" onclick="updateSelectedIndustry()">
+                    <label for="kikaiOrosiCheckbox">機械器具卸売業 (54)</label><br>
+                    <input type="checkbox" id="sonotaOrosiCheckbox" class="industry-checkbox OrosiKouri" name="region" value="その他の卸売業" onclick="updateSelectedIndustry()">
+                    <label for="sonotaOrosiCheckbox">その他の卸売業 (55)</label><br>
+                    <input type="checkbox" id="kakushuShoriCheckbox" class="industry-checkbox OrosiKouri" name="region" value="各種商品小売業" onclick="updateSelectedIndustry()">
+                    <label for="kakushuShoriCheckbox">各種商品小売業 (56)</label><br>
+                    <input type="checkbox" id="oriShoriCheckbox" class="industry-checkbox OrosiKouri" name="region" value="織物・衣服・身の回り品小売業" onclick="updateSelectedIndustry()">
+                    <label for="oriShoriCheckbox">織物・衣服・身の回り品小売業 (57)</label><br>
+                    <input type="checkbox" id="drinkShoriCheckbox" class="industry-checkbox OrosiKouri" name="region" value="飲食料品小売業" onclick="updateSelectedIndustry()">
+                    <label for="drinkShoriCheckbox">飲食料品小売業 (58)</label><br>
+                    <input type="checkbox" id="kikaiShoriCheckbox" class="industry-checkbox OrosiKouri" name="region" value="機械器具小売業" onclick="updateSelectedIndustry()">
+                    <label for="kikaiShoriCheckbox">機械器具小売業 (59)</label><br>
+                    <input type="checkbox" id="sonotaShoriCheckbox" class="industry-checkbox OrosiKouri" name="region" value="その他の小売業" onclick="updateSelectedIndustry()">
+                    <label for="sonotaShoriCheckbox">その他の小売業 (60)</label><br>
+                    <input type="checkbox" id="muteShopShoriCheckbox" class="industry-checkbox OrosiKouri" name="region" value="無店舗小売業" onclick="updateSelectedIndustry()">
+                    <label for="muteShopShoriCheckbox">無店舗小売業 (61)</label><br>
+                </div>
+            </div>
+
+
+            <div class="white-box-section">
+                <input type="checkbox" id="selectKinriHokenCheckbox" class="wrap-checkbox" onclick="toggleCheckboxes('KinriHoken')">金融業、保険業 (J)<br>
+                <div class="box-section-inside">
+                    <input type="checkbox" id="ginkouGyouCheckbox" class="industry-checkbox KinriHoken" name="region" value="銀行業" onclick="updateSelectedIndustry()">
+                    <label for="ginkouGyouCheckbox">銀行業 (62)</label><br>
+                    <input type="checkbox" id="kyoudouGinkouGyouCheckbox" class="industry-checkbox KinriHoken" name="region" value="協同組織金融業" onclick="updateSelectedIndustry()">
+                    <label for="kyoudouGinkouGyouCheckbox">協同組織金融業 (63)</label><br>
+                    <input type="checkbox" id="kashikinGyouCheckbox" class="industry-checkbox KinriHoken" name="region" value="貸金業、クレジットカード業等非預金信用機関" onclick="updateSelectedIndustry()">
+                    <label for="kashikinGyouCheckbox">貸金業、クレジットカード業等非預金信用機関 (64)</label><br>
+                    <input type="checkbox" id="kinriShouhinGyouCheckbox" class="industry-checkbox KinriHoken" name="region" value="金融商品取引業、商品先物取引業" onclick="updateSelectedIndustry()">
+                    <label for="kinriShouhinGyouCheckbox">金融商品取引業、商品先物取引業 (65)</label><br>
+                    <input type="checkbox" id="hochitekiKinriGyouCheckbox" class="industry-checkbox KinriHoken" name="region" value="補助的金融業等" onclick="updateSelectedIndustry()">
+                    <label for="hochitekiKinriGyouCheckbox">補助的金融業等 (66)</label><br>
+                    <input type="checkbox" id="hokenGyouCheckbox" class="industry-checkbox KinriHoken" name="region" value="保険業（保険媒介代理業、保険サービス業を含む）" onclick="updateSelectedIndustry()">
+                    <label for="hokenGyouCheckbox">保険業（保険媒介代理業、保険サービス業を含む） (67)</label><br>
+                </div>
+            </div>
+
+            <div class="blue-box-section">
+                <input type="checkbox" id="selectFudousanChintaiCheckbox" class="wrap-checkbox" onclick="toggleCheckboxes('FudousanChintai')">不動産業、物品賃貸業 (K)<br>
+                <div class="box-section-inside">
+                    <input type="checkbox" id="fudousanTorihikiGyouCheckbox" class="industry-checkbox FudousanChintai" name="region" value="不動産取引業" onclick="updateSelectedIndustry()">
+                    <label for="fudousanTorihikiGyouCheckbox">不動産取引業 (68)</label><br>
+                    <input type="checkbox" id="fudousanChintaiKanriGyouCheckbox" class="industry-checkbox FudousanChintai" name="region" value="不動産賃貸業・管理業" onclick="updateSelectedIndustry()">
+                    <label for="fudousanChintaiKanriGyouCheckbox">不動産賃貸業・管理業 (69)</label><br>
+                    <input type="checkbox" id="busshinChintaiGyouCheckbox" class="industry-checkbox FudousanChintai" name="region" value="物品賃貸業" onclick="updateSelectedIndustry()">
+                    <label for="busshinChintaiGyouCheckbox">物品賃貸業 (70)</label><br>
+                </div>
+            </div>
+
+
+            <div class="white-box-section">
+                <input type="checkbox" id="selectGakujutuSenmonGijutsuCheckbox" class="wrap-checkbox" onclick="toggleCheckboxes('GakujutuSenmonGijutsu')">学術研究、専門・技術サービス業 (L)<br>
+                <div class="box-section-inside">
+                    <input type="checkbox" id="gakujutsuKenkyuuKikanCheckbox" class="industry-checkbox GakujutuSenmonGijutsu" name="region" value="学術・開発研究機関" onclick="updateSelectedIndustry()">
+                    <label for="gakujutsuKenkyuuKikanCheckbox">学術・開発研究機関 (71)</label><br>
+                    <input type="checkbox" id="senmonServiceCheckbox" class="industry-checkbox GakujutuSenmonGijutsu" name="region" value="専門サービス業（他に分類されないもの）" onclick="updateSelectedIndustry()">
+                    <label for="senmonServiceCheckbox">専門サービス業（他に分類されないもの） (72)</label><br>
+                    <input type="checkbox" id="koukokugyouCheckbox" class="industry-checkbox GakujutuSenmonGijutsu" name="region" value="広告業" onclick="updateSelectedIndustry()">
+                    <label for="koukokugyouCheckbox">広告業 (73)</label><br>
+                    <input type="checkbox" id="gijutsuServiceCheckbox" class="industry-checkbox GakujutuSenmonGijutsu" name="region" value="技術サービス業（他に分類されないもの）" onclick="updateSelectedIndustry()">
+                    <label for="gijutsuServiceCheckbox">技術サービス業（他に分類されないもの） (74)</label><br>
+                </div>
+            </div>
+
+
+
+            <div class="blue-box-section">
+                <input type="checkbox" id="selectShukuhakuInshokuServiceCheckbox" class="wrap-checkbox" onclick="toggleCheckboxes('ShukuhakuInshokuService')">宿泊業、飲食サービス業 (M)<br>
+                <div class="box-section-inside">
+                    <input type="checkbox" id="shukuhakuGyouCheckbox" class="industry-checkbox ShukuhakuInshokuService" name="region" value="宿泊業" onclick="updateSelectedIndustry()">
+                    <label for="shukuhakuGyouCheckbox">宿泊業 (75)</label><br>
+                    <input type="checkbox" id="inshokuCheckbox" class="industry-checkbox ShukuhakuInshokuService" name="region" value="飲食店" onclick="updateSelectedIndustry()">
+                    <label for="inshokuCheckbox">飲食店 (76)</label><br>
+                    <input type="checkbox" id="mochikaeriInshokuServiceCheckbox" class="industry-checkbox ShukuhakuInshokuService" name="region" value="持ち帰り・配達飲食サービス業" onclick="updateSelectedIndustry()">
+                    <label for="mochikaeriInshokuServiceCheckbox">持ち帰り・配達飲食サービス業 (77)</label><br>
+                </div>
+            </div>
+
+
+            <div class="white-box-section">
+                <input type="checkbox" id="selectSeikatsuKanrenGorakuGyouCheckbox" class="wrap-checkbox" onclick="toggleCheckboxes('SeikatsuKanrenGorakuGyou')">生活関連サービス業、娯楽業 (N)<br>
+                <div class="box-section-inside">
+                    <input type="checkbox" id="sentakuRiyouCheckbox" class="industry-checkbox SeikatsuKanrenGorakuGyou" name="region" value="洗濯・理容・美容・浴場業" onclick="updateSelectedIndustry()">
+                    <label for="sentakuRiyouCheckbox">洗濯・理容・美容・浴場業 (78)</label><br>
+                    <input type="checkbox" id="sonoTaSeikatsuKanrenGyouCheckbox" class="industry-checkbox SeikatsuKanrenGorakuGyou" name="region" value="その他の生活関連サービス業" onclick="updateSelectedIndustry()">
+                    <label for="sonoTaSeikatsuKanrenGyouCheckbox">その他の生活関連サービス業 (79)</label><br>
+                    <input type="checkbox" id="gorakuGyouCheckbox" class="industry-checkbox SeikatsuKanrenGorakuGyou" name="region" value="娯楽業" onclick="updateSelectedIndustry()">
+                    <label for="gorakuGyouCheckbox">娯楽業 (80)</label><br>
+                </div>
+            </div>
+
+
+
+            <div class="blue-box-section">
+                <input type="checkbox" id="selectKyōikuGakushūShienGyouCheckbox" class="wrap-checkbox" onclick="toggleCheckboxes('KyōikuGakushūShienGyou')">教育、学習支援業 (O)<br>
+                <div class="box-section-inside">
+                    <input type="checkbox" id="gakkouKyōikuCheckbox" class="industry-checkbox KyōikuGakushūShienGyou" name="region" value="学校教育" onclick="updateSelectedIndustry()">
+                    <label for="gakkouKyōikuCheckbox">学校教育 (81)</label><br>
+                    <input type="checkbox" id="sonoTaKyōikuCheckbox" class="industry-checkbox KyōikuGakushūShienGyou" name="region" value="その他の教育、学習支援業" onclick="updateSelectedIndustry()">
+                    <label for="sonoTaKyōikuCheckbox">その他の教育、学習支援業 (82)</label><br>
+                </div>
+            </div>
+
+
+            <div class="white-box-section">
+                <input type="checkbox" id="selectIryouFukushiCheckbox" class="wrap-checkbox" onclick="toggleCheckboxes('IryouFukushi')">医療、福祉 (P)<br>
+                <div class="box-section-inside">
+                    <input type="checkbox" id="iryouGyouCheckbox" class="industry-checkbox IryouFukushi" name="region" value="医療業" onclick="updateSelectedIndustry()">
+                    <label for="iryouGyouCheckbox">医療業 (83)</label><br>
+                    <input type="checkbox" id="hokenEiseiCheckbox" class="industry-checkbox IryouFukushi" name="region" value="保健衛生" onclick="updateSelectedIndustry()">
+                    <label for="hokenEiseiCheckbox">保健衛生 (84)</label><br>
+                    <input type="checkbox" id="shakaiHokenFukushiKaiCheckbox" class="industry-checkbox IryouFukushi" name="region" value="社会保険・社会福祉・介護事業" onclick="updateSelectedIndustry()">
+                    <label for="shakaiHokenFukushiKaiCheckbox">社会保険・社会福祉・介護事業 (85)</label><br>
+                </div>
+            </div>
+
+
+            <div class="blue-box-section">
+                <input type="checkbox" id="selectFukugouServiceCheckbox" class="wrap-checkbox" onclick="toggleCheckboxes('FukugouService')">複合サービス事業 (Q)<br>
+                <div class="box-section-inside">
+                    <input type="checkbox" id="yuubinkyokuCheckbox" class="industry-checkbox FukugouService" name="region" value="郵便局" onclick="updateSelectedIndustry()">
+                    <label for="yuubinkyokuCheckbox">郵便局 (86)</label><br>
+                    <input type="checkbox" id="kyoudouKumiaiCheckbox" class="industry-checkbox FukugouService" name="region" value="協同組合（他に分類されないもの）" onclick="updateSelectedIndustry()">
+                    <label for="kyoudouKumiaiCheckbox">協同組合（他に分類されないもの） (87)</label><br>
+                </div>
+            </div>
+
+
+
+            <div class="white-box-section">
+            <div class="blue-box-section">
+                <input type="checkbox" id="selectServiceCheckbox" class="wrap-checkbox" onclick="toggleCheckboxes('Service')">サービス業（他に分類されないもの） (R)<br>
+                <div class="box-section-inside">
+                    <input type="checkbox" id="haikibutsuCheckbox" class="industry-checkbox Service" name="region" value="廃棄物処理業" onclick="updateSelectedIndustry()">
+                    <label for="haikibutsuCheckbox">廃棄物処理業 (88)</label><br>
+                    <input type="checkbox" id="jidoushaSeibiCheckbox" class="industry-checkbox Service" name="region" value="自動車整備業" onclick="updateSelectedIndustry()">
+                    <label for="jidoushaSeibiCheckbox">自動車整備業 (89)</label><br>
+                    <input type="checkbox" id="kikaiShuuriCheckbox" class="industry-checkbox Service" name="region" value="機械等修理業（別掲を除く）" onclick="updateSelectedIndustry()">
+                    <label for="kikaiShuuriCheckbox">機械等修理業（別掲を除く） (90)</label><br>
+                    <input type="checkbox" id="shokushoukaiCheckbox" class="industry-checkbox Service" name="region" value="職業紹介・労働者派遣業" onclick="updateSelectedIndustry()">
+                    <label for="shokushoukaiCheckbox">職業紹介・労働者派遣業 (91)</label><br>
+                    <input type="checkbox" id="sonotaJigyoCheckbox" class="industry-checkbox Service" name="region" value="その他の事業サービス業" onclick="updateSelectedIndustry()">
+                    <label for="sonotaJigyoCheckbox">その他の事業サービス業 (92)</label><br>
+                    <input type="checkbox" id="seijikeizaiCheckbox" class="industry-checkbox Service" name="region" value="政治・経済・文化団体" onclick="updateSelectedIndustry()">
+                    <label for="seijikeizaiCheckbox">政治・経済・文化団体 (93)</label><br>
+                    <input type="checkbox" id="shuukyouCheckbox" class="industry-checkbox Service" name="region" value="宗教" onclick="updateSelectedIndustry()">
+                    <label for="shuukyouCheckbox">宗教 (94)</label><br>
+                    <input type="checkbox" id="sonotaServiceCheckbox" class="industry-checkbox Service" name="region" value="その他のサービス業" onclick="updateSelectedIndustry()">
+                    <label for="sonotaServiceCheckbox">その他のサービス業 (95)</label><br>
+                    <input type="checkbox" id="gaikokukoumuCheckbox" class="industry-checkbox Service" name="region" value="外国公務" onclick="updateSelectedIndustry()">
+                    <label for="gaikokukoumuCheckbox">外国公務 (96)</label><br>
+                </div>
+            </div>    
+            </div>
+
+
+            <div class="white-box-section">
+                <input type="checkbox" id="selectKoumuCheckbox" class="wrap-checkbox" onclick="toggleCheckboxes('Koumu')">公務（他に分類されるものを除く） (S)<br>
+                <div class="box-section-inside">
+                    <input type="checkbox" id="kokkaKoumuCheckbox" class="industry-checkbox Koumu" name="region" value="国家公務" onclick="updateSelectedIndustry()">
+                    <label for="kokkaKoumuCheckbox">国家公務 (97)</label><br>
+                    <input type="checkbox" id="chihouKoumuCheckbox" class="industry-checkbox Koumu" name="region" value="地方公務" onclick="updateSelectedIndustry()">
+                    <label for="chihouKoumuCheckbox">地方公務 (98)</label><br>
+                </div>
+            </div>
+
+
+            <div class="blue-box-section">
+                <input type="checkbox" id="selectBunruiFunouCheckbox" class="wrap-checkbox" onclick="toggleCheckboxes('BunruiFunou')">分類不能の産業 (T)<br>
+                <div class="box-section-inside">
+                    <input type="checkbox" id="bunruiFunouGyouCheckbox" class="industry-checkbox BunruiFunou" name="region" value="分類不能の産業" onclick="updateSelectedIndustry()">
+                    <label for="bunruiFunouGyouCheckbox">分類不能の産業 (99)</label><br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <form class="listselection_container" id="data-form" action="{{ route('handle.list.selection') }}" method="POST">
+    
+    <!-- 左側 -->
+        <div class="two-box">          
+            <!-- 地域 -->
+            <!-- Modalのjavascriptはmodal-page.jsにある -->
+            <div class="inner-box">
+                <div class="nested-div-description">地域：</div>
+                <div class="nested-div-choice" onclick="openModal()">地域を選択してください<div class="down-arrow">&#9660;</div></div>
+                <input type="hidden" id="selectedRegionInput" name="selectedRegion">
+                <div class="underline"></div>
+            </div>
+
+            <!-- 法人格 -->
+            <div class="inner-box">
+                <div class="nested-div-description">法人格：</div>
+                <div class="nested-div-choice corporateStatus" onclick="openCorporateStatusModal()">法人格を選択してください<div class="down-arrow">&#9660;</div></div>
+                <input type="hidden" id="selectedCorporateStatus" name="selectedCorporateStatus">
+                <div class="underline"></div>    
+            </div>
+
+            <!-- 資本金 -->
+            <div class="inner-box">
+                <div class="nested-div-description">資本金（千円）：</div>
+                <div class="horizontal-box">
+                    <input type="text" name="value3" placeholder="￥" class="inner-boxs hori" style="padding-left: 8px;">
+                    <span class="divider">~</span>
+                    <input type="text" name="value4" placeholder="￥" class="inner-boxs hori" style="padding-left: 8px;">
+                </div>
+                <div class="underline"></div>
+            </div>
+
+            <!-- 設立年 -->
+            <div class="inner-box">
+                <div class="nested-div-description">設立年：</div>
+                <div class="horizontal-box">
+                    <input type="text" name="value5" placeholder="設立年" class="inner-boxs hori" style="padding-left: 8px;">
+                    <span class="divider">~</span>
+                    <input type="text" name="value6" placeholder="設立年" class="inner-boxs hori" style="padding-left: 8px;">
+                </div>
+            </div>
+        </div>
+
+        <!-- 右側 -->
+
+
+        <!-- 業種 -->
+        <div class="two-box bigger">
+            <!-- <div class="inner-box">
+                <div class="nested-div-description">業種：</div>
+                <div class="f">業種を選択してください<div class="down-arrow">&#9660;</div></div>
+                <div class="underline"></div>
+            </div> -->
+            <div class="inner-box">
+                <div class="nested-div-description">業種：</div>
+                <div class="nested-div-choice industry" onclick="openIndustryModal()">業種を選択してください<div class="down-arrow">&#9660;</div></div>
+                <input type="hidden" id="selectedIndustryInput" name="selectedIndustry">
+                <div class="underline"></div>
+            </div>
+
+            
+            <!-- 事業所区分 -->
+            <div class="inner-box">     
+            <div class="nested-div-description">事業所区分：</div>
+                <div class="three-circle-selection-container">
+                    <div class="circle-selection-container">
+                        <div class="jigyo-outer-circle" onclick="jigyoShowInnerCircle(1)">
+                            <div class="jigyo-inner-circle" id="jigyo-inner-circle-1"></div>
+                        </div>
+
+                        <div class="circle-selection-content">本社</div>
+                        <div id="jigyo-selected-data-1" style="display:none">1</div>
+                    </div>
+
+                    <div class="circle-selection-container">
+                        <div class="jigyo-outer-circle" onclick="jigyoShowInnerCircle(2)">
+                            <div class="jigyo-inner-circle" id="jigyo-inner-circle-2"></div>
+                        </div>
+
+                        <div class="circle-selection-content">その他・未分類</div>
+                        <div id="jigyo-selected-data-2" style="display:none">2</div>
+                    </div>
+
+                    <div class="circle-selection-container">
+                        <div class="jigyo-outer-circle" onclick="jigyoShowInnerCircle(3)">
+                            <div class="jigyo-inner-circle" id="jigyo-inner-circle-3"></div>
+                        </div>
+
+                        <div class="circle-selection-content">すべて</div>
+                        <div id="jigyo-selected-data-3" style="display:none">3</div>
+                    </div>
+                    <input id="value8" type="hidden" name="value8">
+                </div>
+                <div class="underline"></div>  
+            </div>
+
+
+            <div class="inner-box">
+            <div class="nested-div-description">上場区分：</div>
+                <div class="three-circle-selection-container">
+                    <div class="circle-selection-container">
+                        <div class="jojo-outer-circle" onclick="jojoShowInnerCircle(4)">
+                            <div class="jojo-inner-circle" id="jojo-inner-circle-4"></div>
+                        </div>
+
+                        <div class="circle-selection-content">上場</div>
+                        <div id="jojo-selected-data-4" style="display:none">1</div>
+                    </div>
+
+                    <div class="circle-selection-container">
+                        <div class="jojo-outer-circle" onclick="jojoShowInnerCircle(5)">
+                            <div class="jojo-inner-circle" id="jojo-inner-circle-5"></div>
+                        </div>
+
+                        <div class="circle-selection-content">非上場</div>
+                        <div id="jojo-selected-data-5" style="display:none">2</div>
+                    </div>
+
+                    <div class="circle-selection-container">
+                        <div class="jojo-outer-circle" onclick="jojoShowInnerCircle(6)">
+                            <div class="jojo-inner-circle" id="jojo-inner-circle-6"></div>
+                        </div>
+
+                        <div class="circle-selection-content">すべて</div>
+                        <div id="jojo-selected-data-6" style="display:none">3</div>
+                    </div>
+                </div>
+                <input id="value9" type="hidden" name="value9">
+
+                <div class="underline"></div>  
+            </div>
+
+
+            <!-- 従業員数 -->
+            <div class="inner-box">
+                <div class="nested-div-description">従業員数（人）：</div>
+                <div class="horizontal-box">
+                    <input type="text" name="value10" placeholder="従業員" class="inner-boxs hori" style="padding-left: 8px;">
+                    <span class="divider">~</span>
+                    <input type="text" name="value11" placeholder="従業員" class="inner-boxs hori" style="padding-left: 8px;">
+                </div>
+                <div class="underline"></div>        
+            </div>
+
+
+            <!-- 売上高 -->
+            <div class="inner-box">
+                <div class="nested-div-description">売上高（百万円）：</div>
+                <div class="horizontal-box">
+                    <input type="text" name="value12" placeholder="売上高" class="inner-boxs hori" style="padding-left: 8px;">
+                    <span class="divider">~</span>
+                    <input type="text" name="value13" placeholder="売上高" class="inner-boxs hori" style="padding-left: 8px;">
+                </div>
+                       
+            </div>
+        </div>
+        
+    </form>
+    <div class="submit-container">
+        <a href="listcollection.html" class="submit-button">
+            この条件で検索</a>   
+    </div>
+                            
+</body>
+</html>
+
+<script>
+function validateForm() {
+    var value3 = document.querySelector('input[name="value3"]').value.trim();
+    var value4 = document.querySelector('input[name="value4"]').value.trim();
+    var value5 = document.querySelector('input[name="value5"]').value.trim();
+    var value6 = document.querySelector('input[name="value6"]').value.trim();
+    var value8 = document.getElementById('value8').value.trim();
+    var value9 = document.getElementById('value9').value.trim();
+    var value10 = document.querySelector('input[name="value10"]').value.trim();
+    var value11 = document.querySelector('input[name="value11"]').value.trim();
+    var value12 = document.querySelector('input[name="value12"]').value.trim();
+    var value13 = document.querySelector('input[name="value13"]').value.trim();
+
+    if (value3 === '' || value4 === '') {
+        alert('資本金を入力してください');
+        return false;
+    }
+
+    if (value5 === '' || value6 === '') {
+        alert('設立年を入力してください');
+        return false;
+    }
+
+    if (value8 === '') {
+        alert('事業所区分を選択してください');
+        return false;
+    }
+
+    if (value9 === '') {
+        alert('上場区分を選択してください');
+        return false;
+    }
+
+    if (value10 === '' || value11 === '') {
+        alert('従業員数を入力してください');
+        return false;
+    }
+
+    if (value12 === '' || value13 === '') {
+        alert('売上高を入力してください');
+        return false;
+    }
+
+    return true;
+}
+
+
+
+    function jigyoShowInnerCircle(circleNumber) {
+        var innerCircle = document.getElementById("jigyo-inner-circle-" + circleNumber);
+        var outerCircle = innerCircle.parentElement;
+        var selectedValue = document.getElementById("jigyo-selected-data-" + circleNumber).innerText.trim();
+
+        
+        // Hide all inner circles and reset border colors
+        var allInnerCircles = document.querySelectorAll('.jigyo-inner-circle');
+        var allOuterCircles = document.querySelectorAll('.jigyo-outer-circle');
+        allInnerCircles.forEach(function(circle) {
+            circle.style.display = "none";
+        });
+        allOuterCircles.forEach(function(circle) {
+            circle.style.borderColor = "black";
+        });
+
+        // Show inner circle and set border color for the selected circle
+        innerCircle.style.display = "block";
+        outerCircle.style.borderColor = "#11A7B7";
+        document.getElementById('value8').value = selectedValue;
+    }
+
+    function jojoShowInnerCircle(circleNumber) {
+        var innerCircle = document.getElementById("jojo-inner-circle-" + circleNumber);
+        var outerCircle = innerCircle.parentElement;
+        var selectedValue = document.getElementById("jojo-selected-data-" + circleNumber).innerText.trim();
+
+        
+        // Hide all inner circles and reset border colors
+        var allInnerCircles = document.querySelectorAll('.jojo-inner-circle');
+        var allOuterCircles = document.querySelectorAll('.jojo-outer-circle');
+        allInnerCircles.forEach(function(circle) {
+            circle.style.display = "none";
+        });
+        allOuterCircles.forEach(function(circle) {
+            circle.style.borderColor = "black";
+        });
+
+        // Show inner circle and set border color for the selected circle
+        innerCircle.style.display = "block";
+        outerCircle.style.borderColor = "#11A7B7";
+        document.getElementById('value9').value = selectedValue;
+    }
+
+    document.getElementById('submit-btn').addEventListener('click',function(event){
+        event.preventDefault(); 
+        // if (validateForm()) {
+        document.getElementById('data-form').submit();
+        // }
+    });
+</script>

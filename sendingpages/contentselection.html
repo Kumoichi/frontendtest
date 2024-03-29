@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/title.css"> 
+    <link rel="stylesheet" href="../css/contents.css"> 
+    <link rel="stylesheet" href="../css/bottomButton.css"> 
+
+    <title>Document</title>
+</head>
+<body class="selectionphase">
+    <div>
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/selection.css"> 
+    <title>Sideways Triangle with Square</title>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Bar</title>
+    <link rel="stylesheet" href="../css/topbar.css"> 
+    </head>
+    <body>
+    
+    <div class="top-bar">
+      <div class="logo">
+        <img src="../images/saleslab.png" alt="Logo" style="height:80px; width:220px;">
+      </div>
+      <div class="title">
+        <h1>ウェブアプリ名称</h1> 
+      </div>
+      <div></div> 
+    </div>
+    <div class="container">
+      <a href="../auth/login.html" class="logout-button">ログアウト>></a>
+      <a href="../dashboard.html" class="logout-button">メインメニュー</a>
+    </div>
+    </body>
+    </html> 
+    
+</head>
+
+<body>
+
+    <div class="three-container">
+    <h2>メール配信指示設定</h2>
+
+    </div>
+
+        <div class="three-container">
+            <div class="shape-container">
+                <div class="square">
+                    <div class="instruction">配信条件指示</div>
+                    <div class="triangle-hide"></div> 
+                </div>
+                <div class="triangle"></div>
+            </div>
+
+            <div class="shape-container">
+                <div class="square">
+                <div class="instruction">配信内容確認</div>
+                    <div class="triangle-hide"></div> 
+                </div>
+                <div class="triangle"></div>
+            </div>
+
+            <div class="shape-container">
+                <div class="square">
+                <div class="instruction3">配信タイミング指定</div>
+                    <div class="triangle-hide"></div> 
+                </div>
+                <div class="triangle"></div>
+            </div>
+        </div>
+</body>
+</html>
+
+    </div>
+ 
+<div class="white-back">
+    <p class="green-underline">コンテンツを選択する</p>
+    <a href="targetselection.html" class="skip-button">コンテンツを選択せず、テンプレート選択へ進む</a>
+    <div class="image-container">
+    <div class="containers">
+        <div onclick="selectContent(1, this)">
+            <img src="../images/contents.png" alt="User Icon" style="height: 160px; width: 300px;">
+        </div>
+        <div onclick="selectContent(3, this)">
+            <img src="../images/contents.png" alt="User Icon" style="height: 160px; width: 300px;">
+        </div>
+        <div onclick="selectContent(5, this)">
+            <img src="../images/contents.png" alt="User Icon" style="height: 160px; width: 300px;">
+        </div>
+        <div onclick="selectContent(7, this)">
+            <img src="../images/contents.png" alt="User Icon" style="height: 160px; width: 300px;">
+        </div>
+        <div onclick="selectContent(9, this)">
+            <img src="../images/contents.png" alt="User Icon" style="height: 160px; width: 300px;">
+        </div>
+    </div>
+    <div class="containers">
+        <div onclick="selectContent(2, this)">
+            <img src="../images/contents.png" alt="User Icon" style="height: 160px; width: 300px;">
+        </div>
+        <div onclick="selectContent(4, this)">
+            <img src="../images/contents.png" alt="User Icon" style="height: 160px; width: 300px;">
+        </div>
+        <div onclick="selectContent(6, this)">
+            <img src="../images/contents.png" alt="User Icon" style="height: 160px; width: 300px;">
+        </div>
+        <div onclick="selectContent(8, this)">
+            <img src="../images/contents.png" alt="User Icon" style="height: 160px; width: 300px;">
+        </div>
+        <div onclick="selectContent(10, this)">
+            <img src="../images/contents.png" alt="User Icon" style="height: 160px; width: 300px;">
+        </div>
+    </div>
+</div>
+
+<div class="center-bottom-buttons">
+    <div class="button-wrapper">
+        <a href="templateselection.html" class="pagemovement-button left">前へ戻る</a>
+        <a href="templateselection.html" class="pagemovement-button under">最初から設定</a>
+        <a href="targetselection.html" id="openModal" class="pagemovement-button right">ターゲット選択へ進む</div>
+    </div>
+</div>
+
+<form id="contentForm" action="{{ route('handle.content.selection') }}" method="POST">
+    <input type="hidden" name="selectedContent" id="selectedContent">
+</form>
+
+<script>
+    let selectedContent = null;
+
+    function selectContent(contentId, element) {
+        selectedContent = contentId;
+
+        let allContent = document.querySelectorAll('.containers div');
+        allContent.forEach(content => {
+            content.style.borderColor = 'gray';  
+        });
+
+        element.style.borderColor = 'orange';  
+
+        console.log("Selected Content Value:", selectedContent); 
+
+        if (selectedContent) {
+            console.log("Content selected successfully."); 
+        } else {
+            console.log("No content selected."); 
+        }
+    }
+
+    function submitForm() {
+        if (selectedContent) {
+            document.getElementById("selectedContent").value = selectedContent;
+            document.getElementById("contentForm").submit();
+        } else {
+            alert("コンテンツを選択してください");
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/title.css"> 
+    <link rel="stylesheet" href="../css/contents.css"> 
+    <link rel="stylesheet" href="../css/bottomButton.css"> 
+    <link rel="stylesheet" href="../css/templateselection.css"> 
+
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body class="selectionphase">
+<div>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/selection.css"> 
+    <title>Sideways Triangle with Square</title>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Bar</title>
+    <link rel="stylesheet" href="../css/topbar.css"> 
+    </head>
+    <body>
+    
+    <div class="top-bar">
+      <div class="logo">
+        <img src="../images/saleslab.png" alt="Logo" style="height:80px; width:220px;">
+      </div>
+      <div class="title">
+        <h1>ウェブアプリ名称</h1> 
+      </div>
+      <div></div> 
+    </div>
+    <div class="container">
+      <a href="../auth/login.html" class="logout-button">ログアウト>></a>
+      <a href="../dashboard.html" class="logout-button">メインメニュー</a>
+    </div>
+    </body>
+    </html> 
+    
+</head>
+
+<body>
+
+    <div class="three-container">
+    <h2>メール配信指示設定</h2>
+
+    </div>
+
+        <div class="three-container">
+            <div class="shape-container">
+                <div class="square">
+                    <div class="instruction">配信条件指示</div>
+                    <div class="triangle-hide"></div> 
+                </div>
+                <div class="triangle"></div>
+            </div>
+
+            <div class="shape-container">
+                <div class="square">
+                <div class="instruction">配信内容確認</div>
+                    <div class="triangle-hide"></div> 
+                </div>
+                <div class="triangle"></div>
+            </div>
+
+            <div class="shape-container">
+                <div class="square">
+                <div class="instruction3">配信タイミング指定</div>
+                    <div class="triangle-hide"></div> 
+                </div>
+                <div class="triangle"></div>
+            </div>
+        </div>
+</body>
+</html>
+
+</div>
+
+<div class="white-back">
+    <p class="green-underline">テンプレートを選択</p>
+    <a href="contentselection.html" class="skip-button">テンプレートを選択せず、配信内容へ進む</a>
+    <form id="templateForm" action="{{ route('handle.template.selection') }}" method="POST">
+        <div class="template" id="templateOne" onclick="selectTemplate('templateTitleOne', this)">
+            <input name="templateTitle" id="templateTitleOne" type="hidden" value="1">ベーステンプレート1
+        </div> 
+
+        <div class="template" id="templateTwo" onclick="selectTemplate('templateTitleTwo', this)">
+            <input name="templateTitle" id="templateTitleTwo" type="hidden" value="2">ベーステンプレート2
+        </div>
+
+        <div class="template" id="templateThree" onclick="selectTemplate('templateTitleThree', this)">
+            <input name="templateTitle" id="templateTitleThree" type="hidden" value="3">ベーステンプレート3
+        </div>
+
+        <div class="template" id="templateFour" onclick="selectTemplate('templateTitleFour', this)">
+            <input name="templateTitle" id="templateTitleFour" type="hidden" value="4">ベーステンプレート4
+        </div>
+
+        <div class="template" id="templateFive" onclick="selectTemplate('templateTitleFive', this)">
+            <input name="templateTitle" id="templateTitleFive" type="hidden" value="5">ベーステンプレート5
+        </div>
+
+        <div class="template" id="templateSix" onclick="selectTemplate('templateTitleSix', this)">
+            <input name="templateTitle" id="templateTitleSix" type="hidden" value="6">ベーステンプレート6
+        </div>
+
+        <div class="template" id="templateSeven" onclick="selectTemplate('templateTitleSeven', this)">
+            <input name="templateTitle" id="templateTitleSeven" type="hidden" value="7">ベーステンプレート7
+        </div>
+
+
+        <input type="hidden" name="selectedTemplate" id="selectedBox">
+    </form>
+
+</div>
+
+<div class="center-bottom-buttons">
+    <div class="button-wrapper">
+        <a href="contentselection.html" class="pagemovement-button left">前のページ</a>
+        <a href="contentselection.html" id="openModal" class="pagemovement-button right">テンプレートを選択</a>
+    </div>
+</div>
+
+<script>
+    let selectedTemplate = null;
+
+    function selectTemplate(templateId, element) {
+        selectedTemplate = document.getElementById(templateId).value;
+        
+        // Remove red border from previously selected template
+        let allTemplates = document.querySelectorAll('.template');
+        allTemplates.forEach(template => {
+            template.style.borderColor = 'gray';
+        });
+
+        // Add red border to the clicked template
+        element.style.borderColor = 'orange';
+
+        console.log("Selected Template Value:", selectedTemplate);
+    }
+
+    function submitForm() {
+        if (selectedTemplate) {
+            document.getElementById("selectedBox").value = selectedTemplate;
+            document.getElementById("templateForm").submit();
+        } else {
+            alert("テンプレートを選択してください");
+        }
+    }
+</script>
+
+</body>
+</html>

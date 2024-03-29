@@ -1,0 +1,97 @@
+.listselection_container {
+    display: flex;
+    margin-right: 130px;
+}
+
+.two-box {
+    flex: 1;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.two-box.bigger {
+    height: 500px;  
+}
+
+.inner-box {
+    width: 350px; 
+    height: 50px;
+    background-color: white;
+    margin: 10px;
+}
+
+.horizontal-box {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.divider {
+    margin: 0 10px; 
+    font-size: 24px; 
+}
+
+.hori{
+    border: solid 1px gray;
+    width: 147px;
+    margin: 0;
+    padding: 0;
+    height: 40px;
+    display:flex;
+    align-items: center;
+}
+
+.nested-div-choice {
+    border: solid 1px gray;
+    position: relative; 
+    height: 40px;
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: white;
+}
+
+.down-arrow {
+    position: absolute; 
+    right: 5px; 
+    top: 50%; 
+    transform: translateY(-50%); 
+}
+
+.underline{
+    background-color: gray;
+    width: 100%;
+    height: 2px;
+}
+
+
+
+.submit-container{
+    position: relative;
+    
+}
+
+.submit-button {
+    position: absolute;
+    margin-top: 20px;
+    right: 170px;
+    width: 150px;
+    background-color: #11A7B7;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+    text-decoration: none;
+    text-align: center;
+    margin-right: 10px;
+    transition: background-color 0.3s, color 0.3s; 
+    cursor: pointer; 
+    overflow: hidden;
+}
+
+.submit-button:hover {
+    background-color: #3fb7c4;
+}
